@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Atrapa las Manzanas</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>🍎 Atrapa las Manzanas 🍎</h1>
+
+    <!-- Pantalla de inicio -->
+    <div id="inicio" class="card">
+      <p><b>Ingresa tu nombre para jugar</b></p>
+      <input type="text" id="nombre" maxlength="20" placeholder="Tu nombre">
+      <button id="btnJugar">▶ Jugar</button>
+      <p class="ayuda">Mueve con ← → (o A / D) o arrastra el dedo.<br>🍎 = +10 puntos &nbsp; 💣 = -1 vida</p>
+    </div>
+
+    <!-- Juego -->
+    <div id="juego" class="hidden">
+      <div id="hud">
+        <span>👤 <span id="hNombre"></span></span>
+        <span>⭐ <span id="hPuntos">0</span></span>
+        <span id="hVidas">❤️❤️</span>
+        <span>Nivel <span id="hNivel">1</span></span>
+        <button id="btnPausa" class="sec btn-pausa">⏸</button>
+      </div>
+      <canvas id="lienzo" width="400" height="560"></canvas>
+    </div>
+
+    <!-- Game Over -->
+    <div id="fin" class="card hidden">
+      <h2>PARTIDA TERMINADA</h2>
+      <p><b>Jugador:</b> <span id="fNombre"></span></p>
+      <p><b>Puntos obtenidos:</b> <span id="fPuntos"></span></p>
+      <p><b>Manzanas atrapadas:</b> <span id="fManzanas"></span></p>
+      <p><b>Vidas:</b> 0</p>
+      <div class="premio" id="fPremio"></div>
+      <div class="aviso" id="fEstado"></div>
+      <button id="btnOtra">🔄 Jugar de nuevo</button>
+    </div>
+
+    <!-- Historial -->
+    <div class="card">
+      <h3>🏆 Historial de jugadores</h3>
+      <div class="aviso" id="avisoDB"></div>
+      <table>
+        <thead>
+          <tr><th>Jugador</th><th class="n">Puntos</th><th>Premio</th><th>Fecha</th></tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+      <button id="btnBorrar" class="gris">🗑️ Borrar historial</button>
+    </div>
+  </div>
+
+  <!-- Modal de confirmación -->
+  <div id="modal" class="hidden">
+    <div class="card">
+      <p><b>¿Seguro que deseas borrar todo el historial?</b></p>
+      <input type="password" id="pin" placeholder="Contraseña de administrador">
+      <div class="aviso" id="pinError"></div>
+      <button id="btnCancelar" class="gris">Cancelar</button>
+      <button id="btnConfirmar">Borrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
